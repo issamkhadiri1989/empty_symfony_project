@@ -24,7 +24,7 @@ install-packages:
 
 enter: ## Enter a running service container (e.g., make enter service=php)
 	@if [ -n "$(service)" ]; then \
-		$(COMPOSE) exec $(service) bash; \
+		docker compose exec $(service) bash; \
 	fi
 
 generate-dev-local-file:
@@ -37,3 +37,6 @@ clear: stop down
 	docker image prune
 	docker network prune
 	docker builder prune
+
+list:
+	docker compose ps
